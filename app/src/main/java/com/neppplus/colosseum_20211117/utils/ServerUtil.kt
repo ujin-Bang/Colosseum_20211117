@@ -7,6 +7,10 @@ import java.io.IOException
 
 class ServerUtil {
 
+    interface JsonResponseHandler {
+        fun onResponse( jsonObj : JSONObject )
+    }
+
     companion object {
 
 //        여기에 적는 변수 / 함수는 => JAVA의 static에 대응됨.
@@ -19,7 +23,7 @@ class ServerUtil {
 
 //        로그인 함수 - POST
 
-        fun postRequestLogIn( email: String,  pw: String ) {
+        fun postRequestLogIn( email: String,  pw: String, handler: JsonResponseHandler? ) {
 
 //            1. 어디로 가야? URL
             val urlString = "${HOST_URL}/user"
@@ -63,6 +67,10 @@ class ServerUtil {
                     val jsonObj = JSONObject( bodyString )
 
                     Log.d("서버응답", jsonObj.toString())
+
+//                    나를 호출한 화면에게 jsonObj를 처리하는 일처리를 미루자.
+                    handler?.onResponse(jsonObj)
+
 
                 }
 
