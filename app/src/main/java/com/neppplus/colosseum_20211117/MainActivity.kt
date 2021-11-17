@@ -47,7 +47,11 @@ class MainActivity : BaseActivity() {
                             Toast.makeText(mContext, "로그인 성공", Toast.LENGTH_SHORT).show()
                         }
                         else {
+//                            message String으로 실패 사유를 알려준다.
+//                            JSON 파싱으로 추출해서 -> "로그인 실패 " 대신 서버가 알려준 실패 사유를 띄우자.
+
                             Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()
+
                         }
 
                     }
