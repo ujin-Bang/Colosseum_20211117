@@ -134,12 +134,30 @@ class ServerUtil {
 
             Log.d("완성주소", urlString)
 
-
-
 //            3. 어떤 메쏘드 + 정보 종합 Request 생성
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .build()
 
 
 //            실제 API 호출 - client
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue( object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+            } )
 
         }
 
