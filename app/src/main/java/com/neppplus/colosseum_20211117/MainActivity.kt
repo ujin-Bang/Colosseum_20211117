@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211117.databinding.ActivityMainBinding
+import com.neppplus.colosseum_20211117.utils.ContextUtil
 
 class MainActivity : BaseActivity() {
 
@@ -17,6 +18,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
 
     }
 
