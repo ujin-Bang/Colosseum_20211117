@@ -25,6 +25,17 @@ class ContextUtil {
 
 //        token getter 함수
 
+        fun getToken( context: Context ) : String {
+
+//            1. 메모장 열기
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+
+//            2. 저장된 토큰값을 리턴
+            return pref.getString(TOKEN, "")!!
+
+
+        }
+
     }
 
 }
