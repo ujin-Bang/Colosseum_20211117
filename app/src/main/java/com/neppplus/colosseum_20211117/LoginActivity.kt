@@ -1,22 +1,20 @@
 package com.neppplus.colosseum_20211117
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.neppplus.colosseum_20211117.databinding.ActivityMainBinding
+import com.neppplus.colosseum_20211117.databinding.ActivityLoginBinding
 import com.neppplus.colosseum_20211117.utils.ServerUtil
 import org.json.JSONObject
 
-class MainActivity : BaseActivity() {
+class LoginActivity : BaseActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         setupEvents()
         setValues()
 
@@ -34,11 +32,11 @@ class MainActivity : BaseActivity() {
         binding.btnLogin.setOnClickListener {
 
             val inputEmail = binding.edtEmail.text.toString()
-            val inputPw = binding.edtPassword.text.toString()
+            val inputPassword = binding.edtPassword.text.toString()
 
 //            서버에서 이메일 / 비번이 맞는 계정인지? 로그인 요청
 
-            ServerUtil.postRequestLogIn(inputEmail, inputPw, object : ServerUtil.JsonResponseHandler {
+            ServerUtil.postRequestLogIn(inputEmail, inputPassword, object : ServerUtil.JsonResponseHandler {
                 override fun onResponse(jsonObj: JSONObject) {
 
 //                    로그인 API를 호출하고 돌아온 상황
