@@ -19,6 +19,13 @@ class ContextUtil {
 
         }
 
+        fun getLoginEmail( context: Context ) : String {
+
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            return pref.getString(LOGIN_EMAIL, "")!!
+
+        }
+
 //        token setter 함수
 
         fun setToken( context: Context, token: String ) {
