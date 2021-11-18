@@ -1,5 +1,6 @@
 package com.neppplus.colosseum_20211117
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -27,6 +28,14 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.topicListView.setOnItemClickListener { adapterView, view, position, l ->
+
+
+            val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
+            startActivity(myIntent)
+
+
+        }
 
     }
 
