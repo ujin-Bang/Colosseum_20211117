@@ -61,6 +61,11 @@ class LoginActivity : BaseActivity() {
 
                             Toast.makeText(mContext, "${nickName}님, 환영합니다!", Toast.LENGTH_SHORT).show()
 
+//                            서버가 내려준 토큰값도 추출
+                            val token = dataObj.getString("token")
+                            
+//                            SharedPrefernces라는 공간에 토큰값 저장
+
 //                            메인으로 이동
                             val myIntent = Intent(mContext, MainActivity::class.java)
                             startActivity(myIntent)
