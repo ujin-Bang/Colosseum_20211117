@@ -70,6 +70,9 @@ class ViewTopicDetailActivity : BaseActivity() {
 
         binding.txtReplyCount.text = "댓글 갯수 : ${mTopicData.replyCount}개"
 
+        binding.txtSideTitle01.text = mTopicData.sideList[0].title
+        binding.txtSideTitle02.text = mTopicData.sideList[1].title
+
     }
 
 
