@@ -59,7 +59,7 @@
                     android:shape="rectangle">
 
                     <solid
-                        android:color="#DFDFDF"/>
+                        android:color="@color/gray"/>
 
                 </shape>
 
@@ -75,7 +75,7 @@
                 <shape
                     android:shape="rectangle">
                     <solid
-                        android:color="#EFEFEF"/>
+                        android:color="@color/gray"/>
 
                 </shape>
 

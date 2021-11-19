@@ -57,16 +57,21 @@ class ReplyAdapter(
         txtDislikeCount.text = "싫어요 : ${data.dislikeCount}개"
 
 
-//        내 좋아요 여부에 따른 테두리 색 변경
+//        내 좋아요 여부에 따른 테두리 색/ 글씨 색 변경
         if (data.myLike) {
 
 //            red_border_box로 txtLikeCount의 배경을 변경
             txtLikeCount.setBackgroundResource(R.drawable.red_border_box)
 
+            txtLikeCount.setTextColor(mContext.resources.getColor(R.color.red))
+
+
         }
         else {
 
             txtLikeCount.setBackgroundResource(R.drawable.gray_border_box)
+            txtLikeCount.setTextColor(mContext.resources.getColor(R.color.gray))
+
 
 
 
