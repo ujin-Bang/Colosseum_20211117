@@ -15,6 +15,9 @@ class TopicData : Serializable {
 
     var replyCount = 0
 
+//    토론 주제의 하위 목록 -> 선택 진영 (SideData) 목록 (ArrayList)
+    var sideList = ArrayList<SideData>()
+
     companion object {
 
 //        JSONObject -> TopicData 형태로 변환해주는 함수 제작.
@@ -28,6 +31,21 @@ class TopicData : Serializable {
             resultTopicData.imageURL = jsonObj.getString("img_url")
 
             resultTopicData.replyCount = jsonObj.getInt("reply_count")
+
+//            토론 주제 파싱 -> JSONArray 등장 -> 선택 진영 목록
+
+            val sidesArr = jsonObj.getJSONArray("sides")
+
+            for ( i  in  0 until  sidesArr.length()  ) {
+
+                val sideObj = sidesArr.getJSONObject(i)
+
+                val sideData = SideData.getSideDataFromJson( sideObj )
+
+                resultTopicData.sideList.add(sideData)
+
+            }
+
 
             return  resultTopicData
         }
