@@ -44,9 +44,7 @@ class ReplyAdapter(
 
         txtSelectedSide.text = "(${data.selectedSide.title})"
 
-        val sdf = SimpleDateFormat("yyyy/MM/dd a h시 m분")
-
-        txtCreatedAt.text = sdf.format(data.createdAt.time)
+        txtCreatedAt.text = data.getFormattedCreateAt()
 
         return row
 
