@@ -65,7 +65,9 @@
         android:layout_marginTop="5dp">
 
         <TextView
+            android:padding="10dp"
             android:id="@+id/txtReplyCount"
+            android:background="@drawable/gray_border_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="답글 : 0개" />
@@ -76,12 +78,17 @@
             android:layout_weight="1" />
 
         <TextView
+            android:background="@drawable/gray_border_box"
+            android:padding="10dp"
             android:id="@+id/txtLikeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="좋아요 : 0개" />
 
         <TextView
+            android:background="@drawable/gray_border_box"
+            android:padding="10dp"
+            android:layout_marginStart="5dp"
             android:id="@+id/txtDislikeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
