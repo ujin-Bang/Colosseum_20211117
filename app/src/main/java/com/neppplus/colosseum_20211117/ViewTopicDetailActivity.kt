@@ -59,6 +59,19 @@ class ViewTopicDetailActivity : BaseActivity() {
 
         }
 
+        binding.btnVote02.setOnClickListener {
+
+            ServerUtil.postRequestVote(mContext, mTopicData.sideList[1].id, object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(jsonObj: JSONObject) {
+
+                    getTopicDetailFromServer()
+
+                }
+
+            })
+
+        }
+
     }
 
     override fun setValues() {
