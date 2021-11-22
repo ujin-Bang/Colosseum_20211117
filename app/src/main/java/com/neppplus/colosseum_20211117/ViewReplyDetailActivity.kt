@@ -24,6 +24,21 @@ class ViewReplyDetailActivity : BaseActivity {
 
 
     override fun setupEvents() {
+
+        binding.btnOk.setOnClickListener {
+
+            val inputContent = binding.edtContent.text.toString()
+
+//            서버에 대댓글 등록 API 호출
+
+            ServerUtil.postRequestReReply(mContext, mReplyData.id,inputContent,object  : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+                }
+
+
+            })
+        }
     }
 
     override fun setValues() {
@@ -37,6 +52,20 @@ class ViewReplyDetailActivity : BaseActivity {
         getReplydetailFromServer()
 
         mReReplyAdapter = ReReplyAdapter(mContext, R.layout.re_reply_list_item,mReReplyadapter)
+
+
+//        1. 댓글 목록 새로고침
+        getReplydetailFromServer()
+
+        runOnUiThread {
+
+            //        2. 입력칸 비워주기
+
+            binding.edtcontent.setText("")
+            //            3. 리스트뷰를 맨 밑(20개 -> 19번 : 갯수 -1번째칸)으로 스크롤 해주기
+            binding.reReplyListView.smoothScrollToPosition(mReReplyList.size -1)
+
+        }
     }
 
     fun getReplydetailFromServer() {
