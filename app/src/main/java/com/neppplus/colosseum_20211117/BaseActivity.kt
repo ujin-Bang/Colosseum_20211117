@@ -46,11 +46,22 @@ abstract class BaseActivity : AppCompatActivity() {
 
 //    (액션바의 커스텀뷰에) 추가된 UI요소들을 멤버변수에 연결
     btnBack = defActionBar.customView.findViewById(R.id.btnBack)
+    btnProfile = defActionBar.customView.findViewById<R.id.btnProfile>()
 
 //    모든 화면 공통 이벤트처리
     btnBack.setOnClickListener {
 //        뒤로가기 : 무조건 지금 화면 종료
         finish()
+    }
+
+
+//    프로필 설정 화면 이동
+    btnProfile.setOnClickLister {
+
+        val myInt =Intent(mContext, MyprofileActivity :: class.java)
+        startActivity(myInt)
+
+
     }
 
     }

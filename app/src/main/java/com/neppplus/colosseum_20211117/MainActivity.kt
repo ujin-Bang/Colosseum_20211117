@@ -63,6 +63,8 @@ class MainActivity : BaseActivity() {
 
         btnBack.visibility = View.GONE
 
+        btnProfile.visibility = View.VISIBLE
+
     }
 
     fun getTopicListFromServer() {
