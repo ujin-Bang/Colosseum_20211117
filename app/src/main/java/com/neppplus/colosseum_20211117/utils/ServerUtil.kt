@@ -402,7 +402,58 @@ class ServerUtil {
         }
 
 
+//      토론에 의견(주제에 바로 댓글) 달기
+        fun postRequestTopicReply(context: Context, topicId: Int,content: String, handler: JsonResponseHandler? ) {
 
+    val urlString = "${HOST_URL}/topic_reply"
+
+    val formData = FormBody.Builder()
+        .add("topic_id",  topicId.toString())
+        .add("content",content)
+        .build()
+
+    val request = Request.Builder()
+        .url(urlString)
+        .post(formData)
+        .header("X-Http-Token", ContextUtil.getToken(context))
+        .build()
+
+
+    val client = OkHttpClient()
+
+    client.newCall(request).enqueue( object : Callback {
+        override fun onFailure(call: Call, e: IOException) {
+
+//                    실패 : 물리적 접속 실패.
+//                    보통 토스트 띄우는 것으로 대체함.
+
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+
+//                    결과가 무엇이든 응답은 돌아온 상황.
+
+//                    응답의 본문(body)에 어떤내용? -> 본문만 String으로 변환.
+
+            val bodyString = response.body!!.string()
+
+//                    bodyString은 JSON 양식으로 가공됨 . => 한글도 임시 변환된 상태 (encoding)
+
+//                    일반 String -> JSONObject로 변환  (한글도 원상복구)
+            val jsonObj = JSONObject( bodyString )
+
+            Log.d("서버응답", jsonObj.toString())
+
+//                    나를 호출한 화면에게 jsonObj를 처리하는 일처리를 미루자.
+            handler?.onResponse(jsonObj)
+
+
+        }
+
+    })
+
+
+}
     }
 
 }
