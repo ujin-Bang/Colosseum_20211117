@@ -134,6 +134,7 @@ class ReplyAdapter(
         txtReplyContent.setOnClickListener {
 
             val myIntent = Intent(mContext,ViewReplyDetailActivity::class.java)
+            myIntent.putExtra("reply",data)
             mContext.startActivity(myIntent)
         }
 
