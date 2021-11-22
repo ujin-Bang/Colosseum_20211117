@@ -86,7 +86,7 @@
             android:text="좋아요 : 0개" />
 
         <TextView
-            android:background="@drawable/gray_border_box"
+            android:background="@drawable/blue_border_box"
             android:padding="10dp"
             android:layout_marginStart="5dp"
             android:id="@+id/txtDislikeCount"

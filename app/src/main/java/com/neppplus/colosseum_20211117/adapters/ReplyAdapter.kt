@@ -73,9 +73,25 @@ class ReplyAdapter(
             txtLikeCount.setTextColor(mContext.resources.getColor(R.color.gray))
 
 
+        }
+
+        if (data.myDislike) {
+
+//            red_border_box로 txtLikeCount의 배경을 변경
+            txtLikeCount.setBackgroundResource(R.drawable.blue_border_box)
+
+            txtLikeCount.setTextColor(mContext.resources.getColor(R.color.blue))
 
 
         }
+        else {
+
+            txtLikeCount.setBackgroundResource(R.drawable.blue_border_box)
+            txtLikeCount.setTextColor(mContext.resources.getColor(R.color.blue))
+
+
+        }
+
         
         
 //        각 줄의 좋아요 갯수에 이벤트 처리
